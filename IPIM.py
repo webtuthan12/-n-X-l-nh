@@ -13,9 +13,7 @@ from PIL import Image
 # compressing an image
 def compressMe(file, verbose = False):
 	
-	# Get the path of the file
-	filepath = os.path.join(os.getcwd(),
-							file)
+	
 	
 	# open the image
 	picture = Image.open("12.jpg")
