@@ -7,6 +7,14 @@ from tkinter import *
 import os
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkinter import filedialog
+
+root = Tk()
+
+root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+
+my_label = Label(root, text = root.filename).pack()
+root.mainloop()
 
 class AutoScrollbar(ttk.Scrollbar):
     """ A scrollbar that hides itself if it's not needed. Works only for grid geometry manager """
@@ -36,7 +44,7 @@ class CanvasImage:
         self.__delta = 1.3 # zoom magnitude
         self.__filter = Image.ANTIALIAS  # could be: NEAREST, BILINEAR, BICUBIC and ANTIALIAS
         self.__previous_state = 0  # previous state of the keyboard
-        self.path = "Compressed_12.jpg"  # path to the image, should be public for outer classes
+        self.path = (root.filename)  # path to the image, should be public for outer classes
         # Create ImageFrame in placeholder widget
         self.__imframe = ttk.Frame(placeholder)  # placeholder of the ImageFrame object
         # Vertical and horizontal scrollbars for canvas

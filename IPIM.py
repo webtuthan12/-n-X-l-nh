@@ -7,8 +7,16 @@
 # import required libraries
 import os
 import sys
-from PIL import Image
+from tkinter import *
+from PIL import ImageTk,Image
+from tkinter import filedialog
 
+root = Tk()
+
+root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+
+my_label = Label(root, text = root.filename).pack()
+root.mainloop()
 # define a function for
 # compressing an image
 def compressMe(file, verbose = False):
@@ -16,7 +24,7 @@ def compressMe(file, verbose = False):
 	
 	
 	# open the image
-	picture = Image.open("12.jpg")
+	picture = Image.open(root.filename)
 	
 	# Save the picture with desired quality
 	# To change the quality of image,
@@ -24,10 +32,12 @@ def compressMe(file, verbose = False):
 	# your desired level, The more
 	# the value of quality variable
 	# and lesser the compression
+
 	picture.save("Compressed_"+file,
 				"JPEG",
 				optimize = True,
 				quality = 50)
+
 	return
 
 # Define a main function
@@ -60,3 +70,13 @@ def main():
 # Driver code
 if __name__ == "__main__":
 	main()
+
+root = Tk()
+
+root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+
+my_label2 = Label(root, text = root.filename2).pack()
+root.mainloop()
+
+compress = Image.open(root.filename2)
+compress.show()

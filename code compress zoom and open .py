@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Advanced zoom for images of various types from small to huge up to several GB
+
 import math
 import warnings
 import tkinter as tk
@@ -7,6 +6,65 @@ from tkinter import *
 import os
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkinter import filedialog
+import sys
+
+root = Tk() # mở cứa sổ Tkinker và insert ảnh
+
+root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+
+my_label = Label(root, text = root.filename).pack()
+root.mainloop()
+
+def compressMe(file, verbose = False): # code nén ảnh
+	
+	
+	
+	# open the image
+	picture = Image.open(root.filename) # lấy đường dẫn ảnh đã chọn
+	
+	compresspic = picture.save("Compressed_"+file,
+				"JPEG",
+				optimize = True,
+				quality = 50) # thay đổi phần trăm nén
+
+	return
+
+def main():
+	
+	verbose = False
+	
+	# check cờ verbose
+	if (len(sys.argv)>1):
+		
+		if (sys.argv[1].lower()=="-v"):
+			verbose = True
+					
+	# check đuôi file
+	cwd = os.getcwd()
+
+	formats = ('.jpg', '.jpeg')
+	
+	# xét toàn bộ file
+	for file in os.listdir(cwd):
+		
+		# nếu đuôi file là JPG hay JPEG thì in 
+		if os.path.splitext(file)[1].lower() in formats:
+			print('compressing', file)
+			compressMe(file, verbose)
+
+	print("Done")
+
+# Driver code
+if __name__ == "__main__":
+	main()
+
+root = Tk() # mở windown chọn ảnh lần 2 để chọn file đã nén
+
+root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+
+my_label2 = Label(root, text = root.filename2).pack()
+root.mainloop()
 
 class AutoScrollbar(ttk.Scrollbar):
     """ A scrollbar that hides itself if it's not needed. Works only for grid geometry manager """
@@ -36,7 +94,7 @@ class CanvasImage:
         self.__delta = 1.3 # zoom magnitude
         self.__filter = Image.ANTIALIAS  # could be: NEAREST, BILINEAR, BICUBIC and ANTIALIAS
         self.__previous_state = 0  # previous state of the keyboard
-        self.path = "Compressed_12.jpg"  # path to the image, should be public for outer classes
+        self.path = (root.filename2)  # path to the image, should be public for outer classes
         # Create ImageFrame in placeholder widget
         self.__imframe = ttk.Frame(placeholder)  # placeholder of the ImageFrame object
         # Vertical and horizontal scrollbars for canvas
