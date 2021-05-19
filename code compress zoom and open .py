@@ -10,12 +10,13 @@ from tkinter import filedialog
 import sys
 
 root = Tk() # mở cứa sổ Tkinker và insert ảnh
+def myClick():
+    root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 
-root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
-
-my_label = Label(root, text = root.filename).pack()
+    my_label = Label(root, text = root.filename).pack()
+myButton = Button(root, text="Insert ảnh", command=myClick)
+myButton.pack()
 root.mainloop()
-
 def compressMe(file, verbose = False): # code nén ảnh
 	
 	

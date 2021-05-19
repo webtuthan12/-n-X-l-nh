@@ -12,10 +12,13 @@ from PIL import ImageTk,Image
 from tkinter import filedialog
 
 root = Tk()
+def myClick():
+    root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 
-root.filename = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+    my_label = Label(root, text = root.filename).pack()
 
-my_label = Label(root, text = root.filename).pack()
+myButton = Button(root, text="Compress", command=myClick)
+myButton.pack()
 root.mainloop()
 # define a function for
 # compressing an image
@@ -71,12 +74,5 @@ def main():
 if __name__ == "__main__":
 	main()
 
-root = Tk()
 
-root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 
-my_label2 = Label(root, text = root.filename2).pack()
-root.mainloop()
-
-compress = Image.open(root.filename2)
-compress.show()
