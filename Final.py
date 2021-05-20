@@ -183,15 +183,17 @@ pic_label1.pack()
 pic_label2 = Label(root)
 pic_label2.pack()
 
-myButton = Button(root, text="Open", command=myClick)
+myButton = Button(root, text="Open",padx=20, pady=10 , command=myClick)
 myButton.pack()
-button_compress = Button(root, text="Compress", command=compress).pack()
+button_compress = Button(root, text="Compress",padx=20, pady=10 , command=compress).pack()
 
-button_crop1 = Button(root, text="Crop1", command=crop1).pack()
-button_crop2 = Button(root, text="Crop2", command=crop2).pack()
-button_crop3 = Button(root, text="Crop3", command=crop3).pack()
-button_crop4 = Button(root, text="Crop4", command=crop4).pack()
-button_crop5 = Button(root, text="Crop5", command=crop5).pack()
+button_crop1 = Button(root, text="Crop1",padx=20, pady=10 , command=crop1).pack()
+button_crop2 = Button(root, text="Crop2",padx=20, pady=10 , command=crop2).pack()
+button_crop3 = Button(root, text="Crop3",padx=20, pady=10 , command=crop3).pack()
+button_crop4 = Button(root, text="Crop4",padx=20, pady=10 , command=crop4).pack()
+button_crop5 = Button(root, text="Crop5",padx=20, pady=10 , command=crop5).pack()
 
-button_quit = Button(root, text="ExitProgram", command=root.quit).pack()
+button_quit = Button(root, text="ExitProgram",padx=20, pady=10 , command=root.quit).pack()
+
+
 root.mainloop()
