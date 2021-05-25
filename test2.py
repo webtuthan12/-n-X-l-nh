@@ -75,86 +75,92 @@ def compress():
 	    main()
 
 def crop1():
-	root.filename2 = filedialog.askopenfilename(initialdir="C:", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+	root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 	my_label2 = Label(root, text = root.filename2)
 	img = Image.open(root.filename2).convert("RGBA")
 
 	w, h = img.size
 
-	left = w/4
-	right = 3*w/4
-	upper = h/4
-	lower = 3*h/4
+	left = w*0
+	right = w*0.5
+	upper = h*0
+	lower = h*0.5
 
 	img2 = img.crop([ left, upper, right, lower])
+	img2.thumbnail((350,350))
 	image = ImageTk.PhotoImage(img2)
 
 	label = Label(root, image = image)
+	label.grid(row=5, column=3)
 
 
 	root.mainloop()
+
 def crop2():
-	root.filename2 = filedialog.askopenfilename(initialdir="C:", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+	root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 	my_label2 = Label(root, text = root.filename2) 
 	img = Image.open(root.filename2).convert("RGBA")
 
 	w, h = img.size
 
-	left = w/4
-	right = 3*w/4
-	upper = h/4
-	lower = 3*h/4
+	left = w*0.5
+	right = w
+	upper = h*0
+	lower = h*0.5
 
 	img2 = img.crop([ left, upper, right, lower])
+	img2.thumbnail((350,350))
 	image = ImageTk.PhotoImage(img2)
 
 	label = Label(root, image = image)
-
+	label.grid(row=5, column=3)
 
 	root.mainloop()
 
 def crop3():
-	root.filename2 = filedialog.askopenfilename(initialdir="C:", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+	root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 	my_label2 = Label(root, text = root.filename2) 
 	img = Image.open(root.filename2).convert("RGBA")
 
 	w, h = img.size
 
-	left = w/4
-	right = 3*w/4
-	upper = h/4
-	lower = 3*h/4
+	left = w*0
+	right = w*0.5
+	upper = h*0.5
+	lower = h
 
 	img2 = img.crop([ left, upper, right, lower])
+	img2.thumbnail((350,350))
 	image = ImageTk.PhotoImage(img2)
 
 	label = Label(root, image = image)
-
+	label.grid(row=5, column=3)
 
 	root.mainloop()
 
 def crop4():
-	root.filename2 = filedialog.askopenfilename(initialdir="C:", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+	root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 	my_label2 = Label(root, text = root.filename2)
 	img = Image.open(root.filename2).convert("RGBA")
 
 	w, h = img.size
 
-	left = w/4
-	right = 3*w/4
-	upper = h/4
-	lower = 3*h/4
+	left = w*0.5
+	right = w
+	upper = h*0.5
+	lower = h
 
 	img2 = img.crop([ left, upper, right, lower])
+	img2.thumbnail((350,350))
 	image = ImageTk.PhotoImage(img2)
 
 	label = Label(root, image = image)
-
+	label.grid(row=5, column=3)
 
 	root.mainloop()
 
 def crop5():
-	root.filename2 = filedialog.askopenfilename(initialdir="C:", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
+	root.filename2 = filedialog.askopenfilename(initialdir="C:/Users/maste/OneDrive/Desktop/Image Processing In Medical/Code", title="Select A File", filetypes=(("jpg files", "*.jpg"),("all files", "*.*")))
 	my_label2 = Label(root, text = root.filename2)
 	img = Image.open(root.filename2).convert("RGBA")
 
@@ -166,22 +172,23 @@ def crop5():
 	lower = 3*h/4
 
 	img2 = img.crop([ left, upper, right, lower])
+	img2.thumbnail((350,350))
 	image = ImageTk.PhotoImage(img2)
 
 	label = Label(root, image = image)
-
+	label.grid(row=5, column=3)
 
 	root.mainloop()
 root = Tk() 
 
 frm = Frame(root)
-
+frm.grid(ipadx=15, ipady=15)
 
 pic_label1 = Label(root)
-
+pic_label1.grid(row=5, column=0)
 
 pic_label2 = Label(root)
-
+pic_label2.grid(row=5, column=3)
 
 myButton = Button(root, text="Open",padx=20, pady=10 , command=myClick)
 
