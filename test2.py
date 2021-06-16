@@ -179,16 +179,17 @@ def crop5():
 	label.grid(row=5, column=3)
 
 	root.mainloop()
-root = Tk() 
 
-frm = Frame(root)
-frm.grid(ipadx=15, ipady=15)
+
+root = Tk() 
+root.iconbitmap('Whitebear.ico')
+root.title('Nén và cắt ảnh')
 
 pic_label1 = Label(root)
 pic_label1.grid(row=5, column=0)
 
 pic_label2 = Label(root)
-pic_label2.grid(row=5, column=3)
+pic_label2.grid(row=5, column=1)
 
 myButton = Button(root, text="Open",padx=20, pady=10 , command=myClick)
 
@@ -199,7 +200,6 @@ button_crop2 = Button(root, text="Crop2",padx=20, pady=10 , command=crop2)
 button_crop3 = Button(root, text="Crop3",padx=20, pady=10 , command=crop3)
 button_crop4 = Button(root, text="Crop4",padx=20, pady=10 , command=crop4)
 button_crop5 = Button(root, text="Crop5",padx=20, pady=10 , command=crop5)
-
 button_quit = Button(root, text="ExitProgram",padx=20, pady=10 , command=root.quit)
 
 myButton.grid(row=1, column=0)
@@ -210,5 +210,6 @@ button_crop3.grid(row=2, column=2)
 button_crop4.grid(row=3, column=0)
 button_crop5.grid(row=3, column=1)
 button_quit.grid(row=4, column=0)
+
 
 root.mainloop()
